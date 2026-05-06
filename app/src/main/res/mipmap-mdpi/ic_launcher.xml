@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="72dp"
+    android:height="72dp"
+    android:viewportWidth="72"
+    android:viewportHeight="72">
+    <!-- Фон -->
+    <path
+        android:fillColor="#1565C0"
+        android:pathData="M0,0 L72,0 L72,72 L0,72 Z" />
+    <!-- Иконка поезда -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M36,10C26,10 16,11.5 16,21v28.5C16,53.6 20.7,58 26.5,58L22,62.5V64h6.7l6,-6H39l6,6h6.7v-1.5L47.5,58c5.8,0 10.5,-4.4 10.5,-8.5V21C58,11.5 46,10 36,10zM25.5,53c-2.5,0 -4.5,-2 -4.5,-4.5s2,-4.5 4.5,-4.5s4.5,2 4.5,4.5S28,53 25.5,53zM33,35H18V21h15v14zM39,35V21h15v14H39zM46.5,53c-2.5,0 -4.5,-2 -4.5,-4.5s2,-4.5 4.5,-4.5s4.5,2 4.5,4.5S49,53 46.5,53z" />
+</vector>

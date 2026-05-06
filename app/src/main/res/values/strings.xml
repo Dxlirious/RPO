@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App -->
+    <string name="app_name">ЖД Билеты</string>
+
+    <!-- Splash -->
+    <string name="splash_tagline">Поиск билетов на поезд</string>
+
+    <!-- Main / Search -->
+    <string name="search_title">Поиск маршрута</string>
+    <string name="from_hint">Откуда</string>
+    <string name="to_hint">Куда</string>
+    <string name="date_hint">Дата отправления</string>
+    <string name="passengers_hint">Пассажиры</string>
+    <string name="search_button">Найти поезда</string>
+    <string name="swap_button">⇄</string>
+
+    <!-- Results -->
+    <string name="results_title">Результаты поиска</string>
+    <string name="no_results">Поезда не найдены</string>
+    <string name="departure">Отправление</string>
+    <string name="arrival">Прибытие</string>
+    <string name="duration">В пути</string>
+    <string name="price_from">от %s BYN</string>
+    <string name="train_number">Поезд №%s</string>
+    <string name="details_button">Подробнее</string>
+
+    <!-- Details -->
+    <string name="details_title">Детали рейса</string>
+    <string name="route_label">Маршрут</string>
+    <string name="schedule_label">Расписание</string>
+    <string name="wagon_types">Типы вагонов</string>
+    <string name="platzkart">Плацкарт</string>
+    <string name="coupe">Купе</string>
+    <string name="sv">СВ</string>
+    <string name="save_ticket">Сохранить билет</string>
+    <string name="ticket_saved">Билет сохранён!</string>
+    <string name="ticket_already_saved">Уже сохранено</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Настройки</string>
+    <string name="theme_label">Тема оформления</string>
+    <string name="theme_light">Светлая</string>
+    <string name="theme_dark">Тёмная</string>
+    <string name="language_label">Язык</string>
+    <string name="lang_russian">Русский</string>
+    <string name="lang_english">English</string>
+    <string name="saved_tickets">Сохранённые билеты</string>
+    <string name="delete_ticket">Удалить</string>
+    <string name="edit_ticket">Редактировать</string>
+    <string name="no_saved">Нет сохранённых билетов</string>
+    <string name="confirm_delete">Удалить этот билет?</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
+    <string name="app_version">Версия 1.0</string>
+
+    <!-- Menu -->
+    <string name="menu_settings">Настройки</string>
+    <string name="menu_saved">Сохранённые</string>
+</resources>

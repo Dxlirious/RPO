@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="accent">#FF6F00</color>
+    <color name="background">#F5F5F5</color>
+    <color name="black">#000000</color>
+    <color name="card_background">#FFFFFF</color>
+    <color name="divider">#BDBDBD</color>
+    <color name="price_color">#1565C0</color>
+    <color name="primary">#1565C0</color>
+    <color name="primary_dark">#0D47A1</color>
+    <color name="saved_color">#388E3C</color>
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+    <color name="white">#FFFFFF</color>
+    <string name="app_name">ЖД Билеты</string>
+    <string name="app_version">Версия 1.0</string>
+    <string name="arrival">Прибытие</string>
+    <string name="confirm_delete">Удалить этот билет?</string>
+    <string name="coupe">Купе</string>
+    <string name="date_hint">Дата отправления</string>
+    <string name="delete_ticket">Удалить</string>
+    <string name="departure">Отправление</string>
+    <string name="details_button">Подробнее</string>
+    <string name="details_title">Детали рейса</string>
+    <string name="duration">В пути</string>
+    <string name="edit_ticket">Редактировать</string>
+    <string name="from_hint">Откуда</string>
+    <string name="lang_english">English</string>
+    <string name="lang_russian">Русский</string>
+    <string name="language_label">Язык</string>
+    <string name="menu_saved">Сохранённые</string>
+    <string name="menu_settings">Настройки</string>
+    <string name="no">Нет</string>
+    <string name="no_results">Поезда не найдены</string>
+    <string name="no_saved">Нет сохранённых билетов</string>
+    <string name="passengers_hint">Пассажиры</string>
+    <string name="platzkart">Плацкарт</string>
+    <string name="price_from">от %s BYN</string>
+    <string name="results_title">Результаты поиска</string>
+    <string name="route_label">Маршрут</string>
+    <string name="save_ticket">Сохранить билет</string>
+    <string name="saved_tickets">Сохранённые билеты</string>
+    <string name="schedule_label">Расписание</string>
+    <string name="search_button">Найти поезда</string>
+    <string name="search_title">Поиск маршрута</string>
+    <string name="settings_title">Настройки</string>
+    <string name="splash_tagline">Поиск билетов на поезд</string>
+    <string name="sv">СВ</string>
+    <string name="swap_button">⇄</string>
+    <string name="theme_dark">Тёмная</string>
+    <string name="theme_label">Тема оформления</string>
+    <string name="theme_light">Светлая</string>
+    <string name="ticket_already_saved">Уже сохранено</string>
+    <string name="ticket_saved">Билет сохранён!</string>
+    <string name="to_hint">Куда</string>
+    <string name="train_number">Поезд №%s</string>
+    <string name="wagon_types">Типы вагонов</string>
+    <string name="yes">Да</string>
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/primary_dark</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/accent</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="android:statusBarColor">@color/primary_dark</item>
+    </style>
+    <style name="SplashTheme" parent="AppTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/primary</item>
+        <item name="android:statusBarColor">@color/primary</item>
+        <item name="android:navigationBarColor">@color/primary</item>
+    </style>
+</resources>
