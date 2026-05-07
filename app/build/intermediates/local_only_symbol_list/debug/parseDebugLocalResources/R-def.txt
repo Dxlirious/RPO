@@ -28,6 +28,9 @@ id btnDetails
 id btnEdit
 id btnSave
 id btnSearch
+id btnSortPriceAsc
+id btnSortPriceDesc
+id btnSortTime
 id btnSwap
 id etDate
 id etFrom
@@ -96,6 +99,11 @@ string details_title
 string duration
 string edit_ticket
 string from_hint
+string gcm_defaultSenderId
+string google_api_key
+string google_app_id
+string google_crash_reporting_api_key
+string google_storage_bucket
 string lang_english
 string lang_russian
 string language_label
@@ -107,6 +115,7 @@ string no_saved
 string passengers_hint
 string platzkart
 string price_from
+string project_id
 string results_title
 string route_label
 string save_ticket

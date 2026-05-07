@@ -1,0 +1,4 @@
+com.traintickets.test.app-androidTest-0 Z:\RPO\TrainTickets\app\build\generated\res\resValues\androidTest\debug
+com.traintickets.test.app-mergeDebugAndroidTestResources-1 Z:\RPO\TrainTickets\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
+com.traintickets.test.app-mergeDebugAndroidTestResources-2 Z:\RPO\TrainTickets\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
+com.traintickets.test.app-debugAndroidTest-3 Z:\RPO\TrainTickets\app\build\intermediates\merged_res\debugAndroidTest\mergeDebugAndroidTestResources

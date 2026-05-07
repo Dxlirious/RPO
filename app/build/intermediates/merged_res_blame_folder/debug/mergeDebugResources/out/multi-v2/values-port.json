@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.traintickets.app-mergeDebugResources-30:/values-port/values-port.xml",
+            "outputFile": "com.traintickets.app-mergeDebugResources-34:/values-port/values-port.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\ACER\\.gradle\\caches\\8.11.1\\transforms\\5cecf1123265ddd02dc92cd0d07d494c\\transformed\\appcompat-1.6.1\\res\\values-port\\values-port.xml",
+                    "source": "C:\\Users\\ACER\\.gradle\\caches\\8.11.1\\transforms\\402c072a6a1ab775960da56379aa46cf\\transformed\\appcompat-1.6.1\\res\\values-port\\values-port.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

@@ -18,6 +18,8 @@ import com.traintickets.models.Train;
 import com.traintickets.mvp.contract.SearchContract;
 import com.traintickets.mvp.presenter.SearchPresenter;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ResultsActivity extends BaseActivity implements SearchContract.View {
@@ -37,20 +39,21 @@ public class ResultsActivity extends BaseActivity implements SearchContract.View
 
     private String from, to, date, passengers;
 
+    // Полный список для сортировки (ЛР №3)
+    private List<Train> allTrains = new ArrayList<>();
+
     @RequiresPermission(android.Manifest.permission.ACCESS_NETWORK_STATE)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
 
-        // Toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null)
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setNavigationOnClickListener(v -> finish());
 
-        // Views
         rvTrains        = findViewById(R.id.rvTrains);
         tvNoResults     = findViewById(R.id.tvNoResults);
         tvOfflineBanner = findViewById(R.id.tvOfflineBanner);
@@ -58,18 +61,20 @@ public class ResultsActivity extends BaseActivity implements SearchContract.View
 
         rvTrains.setLayoutManager(new LinearLayoutManager(this));
 
-        // Параметры из Intent
         Intent intent = getIntent();
         from       = intent.getStringExtra(EXTRA_FROM);
         to         = intent.getStringExtra(EXTRA_TO);
         date       = intent.getStringExtra(EXTRA_DATE);
         passengers = intent.getStringExtra(EXTRA_PASSENGERS);
 
-        // Заголовок маршрута
         TextView tvHeader = findViewById(R.id.tvRouteHeader);
         tvHeader.setText(from + " → " + to + "  ·  " + date + "  ·  " + passengers + " пас.");
 
-        // Запуск MVP
+        // Кнопки сортировки (ЛР №3)
+        findViewById(R.id.btnSortPriceAsc).setOnClickListener(v -> sortByPriceAsc());
+        findViewById(R.id.btnSortPriceDesc).setOnClickListener(v -> sortByPriceDesc());
+        findViewById(R.id.btnSortTime).setOnClickListener(v -> sortByTime());
+
         presenter = new SearchPresenter(this, this);
         presenter.searchTrains(from, to, date, passengers);
     }
@@ -78,8 +83,13 @@ public class ResultsActivity extends BaseActivity implements SearchContract.View
 
     @Override
     public void showTrains(List<Train> trains) {
+        allTrains = new ArrayList<>(trains); // сохраняем оригинал
         rvTrains.setVisibility(View.VISIBLE);
         tvNoResults.setVisibility(View.GONE);
+        displayTrains(trains);
+    }
+
+    private void displayTrains(List<Train> trains) {
         TrainAdapter adapter = new TrainAdapter(trains, train -> {
             Intent detailIntent = new Intent(this, DetailsActivity.class);
             detailIntent.putExtra(EXTRA_TRAIN,      train);
@@ -113,6 +123,29 @@ public class ResultsActivity extends BaseActivity implements SearchContract.View
     public void showEmpty() {
         tvNoResults.setVisibility(View.VISIBLE);
         rvTrains.setVisibility(View.GONE);
+    }
+
+    // ─── Сортировка (ЛР №3) ──────────────────────────────────────
+
+    private void sortByPriceAsc() {
+        List<Train> sorted = new ArrayList<>(allTrains);
+        Collections.sort(sorted,
+                (a, b) -> Integer.compare(a.getPlatzkartPrice(), b.getPlatzkartPrice()));
+        displayTrains(sorted);
+    }
+
+    private void sortByPriceDesc() {
+        List<Train> sorted = new ArrayList<>(allTrains);
+        Collections.sort(sorted,
+                (a, b) -> Integer.compare(b.getPlatzkartPrice(), a.getPlatzkartPrice()));
+        displayTrains(sorted);
+    }
+
+    private void sortByTime() {
+        List<Train> sorted = new ArrayList<>(allTrains);
+        Collections.sort(sorted,
+                (a, b) -> a.getDepartureTime().compareTo(b.getDepartureTime()));
+        displayTrains(sorted);
     }
 
     @Override

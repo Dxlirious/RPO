@@ -25,6 +25,7 @@
         android:textColor="@color/text_secondary"
         android:background="@color/card_background" />
 
+    <!-- Баннер оффлайн-режима (ЛР №2) -->
     <TextView
         android:id="@+id/tvOfflineBanner"
         android:layout_width="match_parent"
@@ -37,6 +38,52 @@
         android:gravity="center"
         android:visibility="gone" />
 
+    <!-- Панель сортировки (ЛР №3) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:background="@color/card_background">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Сортировка: "
+            android:textSize="13sp"
+            android:textColor="@color/text_secondary"
+            android:layout_gravity="center_vertical" />
+
+        <Button
+            android:id="@+id/btnSortPriceAsc"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Цена ↑"
+            android:textSize="11sp"
+            android:layout_marginStart="4dp" />
+
+        <Button
+            android:id="@+id/btnSortPriceDesc"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Цена ↓"
+            android:textSize="11sp"
+            android:layout_marginStart="4dp" />
+
+        <Button
+            android:id="@+id/btnSortTime"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Время"
+            android:textSize="11sp"
+            android:layout_marginStart="4dp" />
+
+    </LinearLayout>
+
+    <!-- Индикатор загрузки (ЛР №2) -->
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
@@ -45,6 +92,7 @@
         android:layout_marginTop="48dp"
         android:visibility="gone" />
 
+    <!-- Сообщение "нет результатов" -->
     <TextView
         android:id="@+id/tvNoResults"
         android:layout_width="wrap_content"
@@ -56,6 +104,7 @@
         android:textColor="@color/text_secondary"
         android:visibility="gone" />
 
+    <!-- Список поездов -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvTrains"
         android:layout_width="match_parent"

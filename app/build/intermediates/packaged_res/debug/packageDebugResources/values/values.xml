@@ -25,6 +25,11 @@
     <string name="duration">В пути</string>
     <string name="edit_ticket">Редактировать</string>
     <string name="from_hint">Откуда</string>
+    <string name="gcm_defaultSenderId" translatable="false">391705962059</string>
+    <string name="google_api_key" translatable="false">AIzaSyCWcqAkBsaE5RVIbIPQzMuwKgVbzfjYg1M</string>
+    <string name="google_app_id" translatable="false">1:391705962059:android:e975361e3f396f046dcfce</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCWcqAkBsaE5RVIbIPQzMuwKgVbzfjYg1M</string>
+    <string name="google_storage_bucket" translatable="false">traintickets-7831e.firebasestorage.app</string>
     <string name="lang_english">English</string>
     <string name="lang_russian">Русский</string>
     <string name="language_label">Язык</string>
@@ -36,6 +41,7 @@
     <string name="passengers_hint">Пассажиры</string>
     <string name="platzkart">Плацкарт</string>
     <string name="price_from">от %s BYN</string>
+    <string name="project_id" translatable="false">traintickets-7831e</string>
     <string name="results_title">Результаты поиска</string>
     <string name="route_label">Маршрут</string>
     <string name="save_ticket">Сохранить билет</string>

@@ -12,12 +12,9 @@ import com.traintickets.R;
 import com.traintickets.database.DBHelper;
 import com.traintickets.models.SavedTicket;
 import com.traintickets.models.Train;
+import com.traintickets.utils.FirebaseHelper;
+import com.traintickets.utils.NotificationHelper;
 
-/**
- * Экран деталей рейса.
- * Показывает расписание, цены по типам вагонов.
- * Позволяет сохранить билет в локальную БД (SQLite).
- */
 public class DetailsActivity extends BaseActivity {
 
     private DBHelper dbHelper;
@@ -29,14 +26,12 @@ public class DetailsActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
 
-        // Toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setNavigationOnClickListener(v -> finish());
 
         dbHelper = new DBHelper(this);
 
-        // Получаем данные из Intent
         Intent intent = getIntent();
         train      = (Train) intent.getSerializableExtra(ResultsActivity.EXTRA_TRAIN);
         date       = intent.getStringExtra(ResultsActivity.EXTRA_DATE);
@@ -47,16 +42,13 @@ public class DetailsActivity extends BaseActivity {
             return;
         }
 
-        // Заполняем UI
         bindViews();
 
-        // Кнопка «Сохранить»
         Button btnSave = findViewById(R.id.btnSave);
 
         String route = train.getFromStation() + " → " + train.getToStation()
                 + " (Поезд " + train.getTrainNumber() + ")";
 
-        // Проверяем, не сохранён ли уже этот рейс
         if (dbHelper.isAlreadySaved(route, date)) {
             btnSave.setText(getString(R.string.ticket_already_saved));
             btnSave.setEnabled(false);
@@ -66,6 +58,25 @@ public class DetailsActivity extends BaseActivity {
             SavedTicket ticket = new SavedTicket(route, date, train.getMinPrice());
             long id = dbHelper.insertTicket(ticket);
             if (id != -1) {
+                // Уведомление (ЛР №3)
+                NotificationHelper.showTicketSaved(
+                        this,
+                        train.getFromStation() + " → " + train.getToStation(),
+                        train.getDepartureTime()
+                );
+
+                // Сохранение в Firebase (ЛР №3)
+                new FirebaseHelper().saveTicket(ticket, new FirebaseHelper.OnTicketSaved() {
+                    @Override
+                    public void onSaved() {
+                        android.util.Log.d("Firebase", "Билет сохранён в облако");
+                    }
+                    @Override
+                    public void onError(String message) {
+                        android.util.Log.e("Firebase", "Ошибка: " + message);
+                    }
+                });
+
                 Toast.makeText(this, getString(R.string.ticket_saved), Toast.LENGTH_SHORT).show();
                 btnSave.setText(getString(R.string.ticket_already_saved));
                 btnSave.setEnabled(false);
@@ -73,7 +84,6 @@ public class DetailsActivity extends BaseActivity {
         });
     }
 
-    /** Заполняет все текстовые поля данными из объекта Train */
     private void bindViews() {
         TextView tvTrainNumber = findViewById(R.id.tvTrainNumber);
         TextView tvDepTime     = findViewById(R.id.tvDepTime);
@@ -96,13 +106,11 @@ public class DetailsActivity extends BaseActivity {
         tvDuration.setText(train.getDuration());
         tvDate.setText(date);
         tvPassengers.setText(passengers + " " + getPassengersLabel(passengers));
-
         tvPlatzkart.setText(train.getPlatzkartPrice() + " BYN");
         tvCoupe.setText(train.getCoupePrice() + " BYN");
         tvSv.setText(train.getSvPrice() > 0 ? train.getSvPrice() + " BYN" : "—");
     }
 
-    /** Склонение слова «пассажир» */
     private String getPassengersLabel(String passengersStr) {
         int n = 1;
         try { n = Integer.parseInt(passengersStr); } catch (Exception ignored) {}
