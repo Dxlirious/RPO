@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:2:1-51:12
-INJECTED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:2:1-51:12
-INJECTED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:2:1-51:12
-INJECTED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:2:1-51:12
+ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:2:1-52:12
+INJECTED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:2:1-52:12
+INJECTED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:2:1-52:12
+INJECTED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:2:1-52:12
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\ACER\.gradle\caches\8.11.1\transforms\0f8df32eb851ef0b7cde5e4039e65100\transformed\material-1.11.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\ACER\.gradle\caches\8.11.1\transforms\6725d03debbeec0191468782f249a1af\transformed\constraintlayout-2.1.4\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] C:\Users\ACER\.gradle\caches\8.11.1\transforms\4f8bd46616a599ebef90e0071c51689c\transformed\jetified-appcompat-resources-1.6.1\AndroidManifest.xml:17:1-22:12
@@ -58,9 +58,13 @@ uses-permission#android.permission.INTERNET
 ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:4:5-67
 	android:name
 		ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:4:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:5:5-79
+	android:name
+		ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:5:22-76
 application
-ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:6:5-50:19
-INJECTED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:6:5-50:19
+ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:7:5-51:19
+INJECTED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:7:5-51:19
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\ACER\.gradle\caches\8.11.1\transforms\0f8df32eb851ef0b7cde5e4039e65100\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\ACER\.gradle\caches\8.11.1\transforms\0f8df32eb851ef0b7cde5e4039e65100\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\ACER\.gradle\caches\8.11.1\transforms\6725d03debbeec0191468782f249a1af\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
@@ -82,69 +86,69 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\ACER\.gradle\cache
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.9.0] C:\Users\ACER\.gradle\caches\8.11.1\transforms\531a95774b29046aeed5389b706b1311\transformed\core-1.9.0\AndroidManifest.xml:28:18-86
 	android:supportsRtl
-		ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:11:9-35
+		ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:12:9-35
 	android:label
-		ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:9:9-41
+		ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:10:9-41
 	android:roundIcon
-		ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:10:9-48
+		ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:11:9-48
 	android:icon
-		ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:8:9-43
+		ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:9:9-43
 	android:allowBackup
-		ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:7:9-35
+		ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:8:9-35
 	android:theme
-		ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:12:9-40
+		ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:13:9-40
 activity#com.traintickets.activities.SplashActivity
-ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:15:9-24:20
+ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:16:9-25:20
 	android:noHistory
-		ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:19:13-37
+		ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:20:13-37
 	android:exported
-		ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:17:13-36
+		ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:18:13-36
 	android:theme
-		ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:18:13-47
+		ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:19:13-47
 	android:name
-		ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:16:13-54
+		ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:17:13-54
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:20:13-23:29
+ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:21:13-24:29
 action#android.intent.action.MAIN
-ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:21:17-69
+ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:22:17-69
 	android:name
-		ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:21:25-66
+		ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:22:25-66
 category#android.intent.category.LAUNCHER
-ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:22:17-77
+ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:23:17-77
 	android:name
-		ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:22:27-74
+		ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:23:27-74
 activity#com.traintickets.activities.MainActivity
-ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:27:9-30:48
+ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:28:9-31:48
 	android:label
-		ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:30:13-45
+		ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:31:13-45
 	android:exported
-		ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:29:13-37
+		ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:30:13-37
 	android:name
-		ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:28:13-52
+		ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:29:13-52
 activity#com.traintickets.activities.ResultsActivity
-ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:33:9-36:53
+ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:34:9-37:53
 	android:label
-		ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:36:13-50
+		ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:37:13-50
 	android:exported
-		ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:35:13-37
+		ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:36:13-37
 	android:name
-		ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:34:13-55
+		ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:35:13-55
 activity#com.traintickets.activities.DetailsActivity
-ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:39:9-42:53
+ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:40:9-43:53
 	android:label
-		ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:42:13-50
+		ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:43:13-50
 	android:exported
-		ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:41:13-37
+		ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:42:13-37
 	android:name
-		ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:40:13-55
+		ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:41:13-55
 activity#com.traintickets.activities.SettingsActivity
-ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:45:9-48:54
+ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:46:9-49:54
 	android:label
-		ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:48:13-51
+		ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:49:13-51
 	android:exported
-		ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:47:13-37
+		ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:48:13-37
 	android:name
-		ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:46:13-56
+		ADDED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml:47:13-56
 uses-sdk
 INJECTED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from Z:\RPO\TrainTickets\app\src\main\AndroidManifest.xml

@@ -28,6 +28,7 @@ public class SearchPresenter implements SearchContract.Presenter {
 
             @Override
             public void onSuccess(List<Train> trains, boolean fromCache) {
+                android.util.Log.d("MVP_DEBUG", "fromCache = " + fromCache);
                 if (view == null) return;
                 view.showLoading(false);
                 if (trains.isEmpty()) {

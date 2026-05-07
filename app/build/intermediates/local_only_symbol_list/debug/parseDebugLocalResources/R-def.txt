@@ -62,6 +62,7 @@ id tvDepartureTime
 id tvDuration
 id tvNoResults
 id tvNoSaved
+id tvOfflineBanner
 id tvPassengers
 id tvPlatzkartPrice
 id tvPrice

@@ -3,6 +3,8 @@ package com.traintickets.mvp.model;
 import android.content.Context;
 import android.os.AsyncTask;
 
+import androidx.annotation.RequiresPermission;
+
 import com.traintickets.database.DBHelper;
 import com.traintickets.models.Train;
 import com.traintickets.network.ApiClient;
@@ -30,7 +32,10 @@ public class SearchModel {
         this.apiClient = new ApiClient();
     }
 
+    @RequiresPermission(android.Manifest.permission.ACCESS_NETWORK_STATE)
     public void loadTrains(String from, String to, String date, Callback callback) {
+        boolean connected = NetworkUtils.isConnected(context);
+        android.util.Log.d("MVP_DEBUG", "isConnected = " + connected);
         if (NetworkUtils.isConnected(context)) {
             new FetchTask(from, to, date, callback).execute();
         } else {
@@ -60,12 +65,14 @@ public class SearchModel {
         @Override
         protected List<Train> doInBackground(Void... voids) {
             try {
+                Thread.sleep(3000);
                 List<Train> trains = apiClient.fetchTrains(from, to, date);
                 if (!trains.isEmpty()) {
                     dbHelper.cacheTrains(from, to, date, trains);
                     return trains;
                 }
             } catch (Exception e) {
+                android.util.Log.d("MVP_DEBUG", "API error: " + e.getMessage());
                 errorMessage = e.getMessage();
             }
             List<Train> cached = dbHelper.getCachedTrains(from, to, date, CACHE_MAX_AGE_MS);
