@@ -2,12 +2,16 @@ package com.traintickets.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.traintickets.R;
 import com.traintickets.database.DBHelper;
 import com.traintickets.models.SavedTicket;
@@ -65,23 +69,51 @@ public class DetailsActivity extends BaseActivity {
                         train.getDepartureTime()
                 );
 
-                // Сохранение в Firebase (ЛР №3)
-                new FirebaseHelper().saveTicket(ticket, new FirebaseHelper.OnTicketSaved() {
-                    @Override
-                    public void onSaved() {
-                        android.util.Log.d("Firebase", "Билет сохранён в облако");
-                    }
-                    @Override
-                    public void onError(String message) {
-                        android.util.Log.e("Firebase", "Ошибка: " + message);
-                    }
-                });
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                if (user != null) {
+                    new FirebaseHelper().saveTicket(ticket, new FirebaseHelper.OnTicketSaved() {
+                        @Override
+                        public void onSaved() {
+                            android.util.Log.d("Firebase", "Билет сохранён в облако");
+                        }
+
+                        @Override
+                        public void onError(String message) {
+                            android.util.Log.e("Firebase", "Ошибка: " + message);
+                        }
+                    });
+                }
 
                 Toast.makeText(this, getString(R.string.ticket_saved), Toast.LENGTH_SHORT).show();
                 btnSave.setText(getString(R.string.ticket_already_saved));
                 btnSave.setEnabled(false);
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_details, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.action_share) {
+            shareRoute();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    /** Интеграция с соцсетями и мессенджерами через стандартное меню «Поделиться». */
+    private void shareRoute() {
+        String routeLine = train.getFromStation() + " → " + train.getToStation()
+                + ", " + date + ", отправление " + train.getDepartureTime();
+        Intent send = new Intent(Intent.ACTION_SEND);
+        send.setType("text/plain");
+        send.putExtra(Intent.EXTRA_TEXT, routeLine);
+        startActivity(Intent.createChooser(send, getString(R.string.share_chooser)));
     }
 
     private void bindViews() {

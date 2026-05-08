@@ -11,11 +11,13 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.traintickets.R;
 
 /**
  * Экран загрузки (Splash Screen).
- * Показывает логотип с анимацией, затем переходит на MainActivity.
+ * Показывает логотип с анимацией, затем открывает экран входа или главный экран
+ * (в зависимости от Firebase Authentication).
  */
 public class SplashActivity extends BaseActivity {
 
@@ -61,7 +63,10 @@ public class SplashActivity extends BaseActivity {
         // Переход на MainActivity
         navigateRunnable = () -> {
             if (isDestroyed() || isFinishing()) return;
-            Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+            Class<?> next = FirebaseAuth.getInstance().getCurrentUser() != null
+                    ? MainActivity.class
+                    : AuthActivity.class;
+            Intent intent = new Intent(SplashActivity.this, next);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         };

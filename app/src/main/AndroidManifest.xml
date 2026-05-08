@@ -3,6 +3,10 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -11,6 +15,16 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
 
         <!-- Splash Screen -->
         <activity
@@ -36,11 +50,23 @@
             android:exported="false"
             android:label="@string/results_title" />
 
-        <!-- Details Screen -->
+            <!-- Details Screen -->
         <activity
             android:name=".activities.DetailsActivity"
             android:exported="false"
             android:label="@string/details_title" />
+
+        <!-- Auth (LR4) -->
+        <activity
+            android:name=".activities.AuthActivity"
+            android:exported="false"
+            android:label="@string/auth_title" />
+
+        <!-- Platform APIs demo -->
+        <activity
+            android:name=".activities.PlatformApisActivity"
+            android:exported="false"
+            android:label="@string/platform_apis_title" />
 
         <!-- Settings Screen -->
         <activity

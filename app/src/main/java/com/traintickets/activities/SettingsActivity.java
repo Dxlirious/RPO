@@ -15,11 +15,14 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.ListenerRegistration;
 import com.traintickets.R;
 import com.traintickets.adapters.SavedTicketAdapter;
 import com.traintickets.database.DBHelper;
 import com.traintickets.models.SavedTicket;
 import com.traintickets.utils.LocaleHelper;
+import com.traintickets.utils.FirebaseHelper;
 import com.traintickets.utils.PrefsManager;
 
 import java.util.List;
@@ -38,6 +41,8 @@ public class SettingsActivity extends BaseActivity {
     private List<SavedTicket> savedTickets;
     private RecyclerView rvSaved;
     private TextView tvNoSaved;
+    private TextView tvFirestoreSync;
+    private ListenerRegistration firestoreListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +57,16 @@ public class SettingsActivity extends BaseActivity {
 
         setupThemeSelector();
         setupLanguageSelector();
+        tvFirestoreSync = findViewById(R.id.tvFirestoreSync);
+        findViewById(R.id.btnPlatformApis).setOnClickListener(v ->
+                startActivity(new Intent(this, PlatformApisActivity.class)));
+        findViewById(R.id.btnLogout).setOnClickListener(v -> {
+            FirebaseAuth.getInstance().signOut();
+            Intent i = new Intent(this, AuthActivity.class);
+            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(i);
+            finish();
+        });
         setupSavedTickets();
     }
 
@@ -106,6 +121,46 @@ public class SettingsActivity extends BaseActivity {
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        firestoreListener = new FirebaseHelper().listenUserTickets(new FirebaseHelper.OnRealtimeTickets() {
+            @Override
+            public void onUpdate(List<SavedTicket> tickets) {
+                runOnUiThread(() -> updateFirestoreText(tickets));
+            }
+
+            @Override
+            public void onError(String message) {
+                runOnUiThread(() ->
+                        tvFirestoreSync.setText(getString(R.string.cloud_error, message)));
+            }
+        });
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (firestoreListener != null) {
+            firestoreListener.remove();
+            firestoreListener = null;
+        }
+    }
+
+    private void updateFirestoreText(List<SavedTicket> tickets) {
+        if (tickets == null || tickets.isEmpty()) {
+            tvFirestoreSync.setText(R.string.cloud_empty);
+            return;
+        }
+        StringBuilder sb = new StringBuilder();
+        for (SavedTicket t : tickets) {
+            sb.append("• ").append(t.getRoute()).append("\n  ")
+                    .append(t.getDate()).append(" — ")
+                    .append(t.getPrice()).append(" BYN\n");
+        }
+        tvFirestoreSync.setText(sb.toString().trim());
     }
 
     // ───────────── SAVED TICKETS ─────────────
